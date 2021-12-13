@@ -9,5 +9,6 @@
         <module name="vehicles-ca1-Nov21-starter" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="8" />
   </component>
 </project>

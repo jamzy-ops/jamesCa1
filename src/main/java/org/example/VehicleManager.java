@@ -39,10 +39,13 @@ public class VehicleManager {
                 int mileage = sc.nextInt();
                 double latitude = sc.nextDouble();  // Depot GPS location
                 double longitude = sc.nextDouble();
-                int loadSpace = sc.nextInt();
+//                int loadSpace = sc.nextInt();
 
                 if (type.equalsIgnoreCase("Van") ||
-                        type.equalsIgnoreCase("Truck")) {
+                        type.equalsIgnoreCase("Truck"))
+                {
+                    double loadSpace = sc.nextDouble();
+
                     // construct a Van object and add it to the passenger list
                     vehicleList.add(new Van(id, type, make, model, milesPerKwH,
                             registration, costPerMile,
@@ -50,12 +53,43 @@ public class VehicleManager {
                             mileage, latitude, longitude,
                             loadSpace));
                 }
+                else if (type.equalsIgnoreCase("Car") ||
+                        type.equalsIgnoreCase("4x4"))
+                {
+                    int seats = sc.nextInt();
+
+                }
+
+
+
             }
             sc.close();
 
         } catch (IOException e) {
             System.out.println("Exception thrown. " + e);
         }
+    }
+
+    public ArrayList<Vehicle> findVehiclesByMake(String make)
+
+    {
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+        for (Vehicle v : vehicleList)
+        {
+            if (v.getMake().equalsIgnoreCase(make))
+                vehicles.add(v);
+        }
+        return vehicles;
+    }
+
+    public Vehicle findVehicleById(int id) {
+        for (Vehicle v : vehicleList)
+        {
+            if(v.getId()== id)
+
+                return v;
+        }
+            return null;
     }
 
     //TODO add more functionality as per spec.

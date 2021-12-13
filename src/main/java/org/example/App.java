@@ -32,6 +32,8 @@ public class App
         System.out.println("List of all Vehicles:");
         vehicleManager.displayAllVehicles();
 
+
+
         System.out.println("Program exiting... Goodbye");
     }
 }
